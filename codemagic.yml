@@ -1,0 +1,16 @@
+# Customize the codemagic.yaml file according to your project and commit it to the root of your repository
+# Check out https://docs.codemagic.io/getting-started/yaml/ for more information
+workflows:
+  spotify-workflow:
+    name: Spotify Pipeline
+    scripts:
+      - name: iOS test
+        script: |
+          xcode-project run-tests \
+              --workspace Spotify.xcworkspace \
+              --scheme Spotify \
+              --device "iPhone 11"
+    publishing:
+      email:
+        recipients:
+          - hello@iosacademy.io
